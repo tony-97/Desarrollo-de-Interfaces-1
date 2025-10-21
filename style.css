@@ -1,0 +1,42 @@
+body {
+  background-color: rgb(236, 105, 186);
+}
+
+.contenedor {
+  height: 100vh;
+}
+
+.juego {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.michi_fila {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.michi {
+  display: flex;
+  flex-direction: column;
+  font-size: 4em;
+  background-color: green;
+  gap: 10px;
+}
+
+.jugador {
+  font-size: 2em;
+}
+
+.casilla {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 2em;
+  aspect-ratio: 1/1;
+}
