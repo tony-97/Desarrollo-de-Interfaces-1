@@ -1,9 +1,8 @@
 body {
-  background-color: rgb(236, 105, 186);
+  background-color: whitesmoke;
 }
 
 .contenedor {
-  height: 100vh;
 }
 
 .juego {
@@ -24,16 +23,17 @@ body {
   display: flex;
   flex-direction: column;
   font-size: 4em;
-  background-color: green;
+  background-color: darkslategray;
   gap: 10px;
 }
 
 .jugador {
+  background-color: aliceblue;
   font-size: 2em;
 }
 
 .casilla {
-  background-color: aquamarine;
+  background-color: lightgray;
   display: flex;
   justify-content: center;
   align-content: center;
