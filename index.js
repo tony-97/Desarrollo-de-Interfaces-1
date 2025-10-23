@@ -14,6 +14,20 @@ const playerTurno = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/sv
 const PLAYER_1 = 0;
 const PLAYER_2 = 1;
 
+const posibilidades = [
+  // Horizontales
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  // Verticales
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  // Diagonales
+  [0, 4, 8],
+  [2, 4, 6],
+];
+
 document.addEventListener("DOMContentLoaded", () => {
   const player1Element = document.getElementById("jugador1");
   player1Element.getElementsByClassName("marcador")[0].innerHTML = marker1;
@@ -25,32 +39,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const marcadores = [marker1, marker2];
   let turno = PLAYER_1;
   let turnoMarcador = marcadores[turno];
-  const casillas = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ];
+  let ganador = null;
+  const casillas = [null, null, null, null, null, null, null, null, null];
   Array.from(document.getElementsByClassName("casilla")).forEach((casilla) => {
     casilla.addEventListener("mouseenter", () => {
-      if (!casillas[casilla.id]) {
+      if (casillas[casilla.id] === null) {
         casilla.innerHTML = turnoMarcador;
       }
     });
     casilla.addEventListener("mouseleave", () => {
-      if (!casillas[casilla.id]) {
+      if (casillas[casilla.id] === null) {
         casilla.innerHTML = "";
       }
     });
     casilla.addEventListener("mouseup", () => {
-      if (!casillas[casilla.id]) {
-        casillas[casilla.id] = true;
+      if (casillas[casilla.id] === null && ganador === null) {
+        casillas[casilla.id] = turno;
         casilla.innerHTML = turnoMarcador;
+        for (const posibilidad of posibilidades) {
+          const hayGanador =
+            casillas[posibilidad[0]] === casillas[posibilidad[1]] &&
+            casillas[posibilidad[1]] === casillas[posibilidad[2]];
+          if (hayGanador && casillas[posibilidad[0]] !== null) {
+            ganador = turno;
+          }
+        }
         turno = ++turno % 2;
         turnoMarcador = marcadores[turno];
         if (turno == PLAYER_1) {
