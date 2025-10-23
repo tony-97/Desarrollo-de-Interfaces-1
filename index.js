@@ -11,6 +11,20 @@ const playerTurno = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/sv
   <path d="M50 20 V80 M30 60 L50 80 L70 60" stroke="darkslateblue" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
 
+const lineaGanadora = (x1, y1, x2, y2) => `<div id="linea">
+  <svg xmlns="http://www.w3.org/2000/svg">
+    <line
+      x1="${x1}"
+      y1="${y1}"
+      x2="${x2}"
+      y2="${y2}"
+      stroke="lightslategray"
+      stroke-width="20"
+      stroke-linecap="round"
+    />
+  </svg>
+</div>`;
+
 const PLAYER_1 = 0;
 const PLAYER_2 = 1;
 
@@ -36,9 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
   player2Element.getElementsByClassName("marcador")[0].innerHTML = marker2;
   const turnoPlayer2Element = player2Element.getElementsByClassName("turno")[0];
 
+  const michi = document.getElementsByClassName("michi")[0];
+
   const marcadores = [marker1, marker2];
   let turno = PLAYER_1;
   let turnoMarcador = marcadores[turno];
+  let casillasGanadoras = null;
   let ganador = null;
   const casillas = [null, null, null, null, null, null, null, null, null];
   Array.from(document.getElementsByClassName("casilla")).forEach((casilla) => {

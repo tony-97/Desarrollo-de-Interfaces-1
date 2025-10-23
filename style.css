@@ -21,11 +21,23 @@ body {
 }
 
 .michi {
+  position: relative;
   display: flex;
   flex-direction: column;
   font-size: 4em;
   background-color: darkslategray;
   gap: 10px;
+}
+
+#linea {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#linea svg {
+  width: 100%;
+  height: 100%;
 }
 
 .jugador {
