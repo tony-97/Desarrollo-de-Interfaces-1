@@ -6,7 +6,8 @@ body {
 }
 
 .juego {
-  height: 100%;
+  gap: 4em;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: center;
