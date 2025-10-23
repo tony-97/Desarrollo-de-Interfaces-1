@@ -25,7 +25,7 @@ body {
   display: flex;
   flex-direction: column;
   font-size: 4em;
-  background-color: darkslategray;
+  background-color: darkslateblue;
   gap: 10px;
 }
 
@@ -41,7 +41,7 @@ body {
 }
 
 .jugador {
-  background-color: aliceblue;
+  background-color: lightgray;
   font-size: 2em;
   display: flex;
   flex-direction: column;
@@ -50,6 +50,8 @@ body {
 }
 
 .marcador {
+  margin: 1em;
+  background-color: lightsteelblue;
   width: 5em;
   aspect-ratio: 1/1;
 }
