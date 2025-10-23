@@ -31,6 +31,20 @@ body {
 .jugador {
   background-color: aliceblue;
   font-size: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.marcador {
+  width: 5em;
+  aspect-ratio: 1/1;
+}
+
+.turno {
+  width: 2.5em;
+  aspect-ratio: 1/1;
 }
 
 .casilla {
