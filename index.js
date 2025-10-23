@@ -62,6 +62,21 @@ document.addEventListener("DOMContentLoaded", () => {
             casillas[posibilidad[1]] === casillas[posibilidad[2]];
           if (hayGanador && casillas[posibilidad[0]] !== null) {
             ganador = turno;
+            casillasGanadoras = posibilidad;
+            const casillaInicio = document.getElementById(posibilidad[0]);
+            const casillaFinal = document.getElementById(posibilidad[2]);
+            const ancho = casillaInicio.getBoundingClientRect().width;
+            const alto = casillaInicio.getBoundingClientRect().height;
+            // esto se hace con el objetivo de poder marcar la linea del ganador
+            const x1 = casillaInicio.offsetLeft + ancho * 0.5;
+            const y1 = casillaInicio.offsetTop + alto * 0.5;
+            const x2 = casillaFinal.offsetLeft + ancho * 0.5;
+            const y2 = casillaFinal.offsetTop + alto * 0.5;
+            michi.insertAdjacentHTML(
+              "afterbegin",
+              lineaGanadora(x1, y1, x2, y2)
+            );
+            return;
           }
         }
         turno = ++turno % 2;
