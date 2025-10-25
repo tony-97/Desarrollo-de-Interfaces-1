@@ -45,6 +45,11 @@ body {
   height: 100%;
 }
 
+/* For desktop, this wrapper is ignored for layout purposes */
+.jugadores {
+  display: contents;
+}
+
 .jugador {
   background-color: lightgray;
   font-size: 2em;
@@ -52,6 +57,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* Move player 2 to the end on desktop */
+#jugador2 {
+  order: 1;
 }
 
 .marcador {
@@ -73,4 +83,58 @@ body {
   align-content: center;
   width: 2em;
   aspect-ratio: 1/1;
+}
+
+@media (max-width: 580px) {
+  .jugadores {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: space-between;
+    padding: 0 1em;
+  }
+
+  .jugador {
+    font-size: 1.5em;
+  }
+
+  /* Move player 2 to the end on desktop */
+  #jugador2 {
+    order: initial;
+  }
+
+  .juego {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .michi {
+    align-self: center;
+    font-size: 3.5em;
+  }
+
+  .marcador {
+    width: 3em;
+  }
+}
+
+@media (580px < width < 1200px) {
+  .juego {
+    gap: 2em;
+  }
+
+  .jugadores {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .jugador {
+    font-size: 1.5em;
+  }
+
+  .marcador {
+    width: 3em;
+  }
 }
