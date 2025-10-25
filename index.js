@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         casilla.innerHTML = "";
       }
     });
-    casilla.addEventListener("mouseup", () => {
+    casilla.addEventListener("click", () => {
       if (casillas[casilla.id] === null && ganador === null) {
         casillas[casilla.id] = turno;
         casilla.innerHTML = turnoMarcador;
