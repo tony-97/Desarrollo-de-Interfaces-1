@@ -29,7 +29,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  font-size: 4em;
+  font-size: 6em;
   background-color: darkslateblue;
   gap: 10px;
 }
@@ -136,5 +136,9 @@ body {
 
   .marcador {
     width: 3em;
+  }
+
+  .michi {
+    font-size: 4em;
   }
 }
